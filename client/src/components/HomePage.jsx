@@ -19,7 +19,7 @@ const HomePage = () => (
 
 
     <Paper style={style} zDepth={4} className="homepic">
-      <CardMedia overlay={<CardTitle title=' Con "Fachada"   haz tu casa un hogar'  />}>
+      <CardMedia overlay={<CardTitle title=' Con "Fachada" haz tu casa un hogar'  />}>
      <img src="../css/paintlogo.png" alt="logo" className="Logo" />
     </CardMedia>
     </Paper>
