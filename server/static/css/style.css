@@ -7,20 +7,28 @@ body {
   background-size: 125% 150%;
 }
 html {
-  height: 100%;
+  height: 125%;
 
+}
+h1{
+  position: relative;
+  left: 15px;
 }
 
 .homepic{
-
   width: 850px;
-  height: 610px;
+  height: 615px;
   position: absolute;
   left: 200px;
-  top: 200px;
+  top: 150px;
+  padding-top: 50px;
 }
 
-
+.avt{
+  position: relative;
+  top:0px;
+  left:100px;
+}
 
 a {
   width: 200px;
@@ -74,26 +82,34 @@ a:hover {
   text-align: center;
   width: 700px;
   height: 500px;
-  
+
 }
 .container1 {
   margin: 0 auto;
   text-align: center;
   width: 700px;
-  height: 500px;
+  height: 560px;
 
 }
 
 .Logo{
   width: 850px;
-  height: 550px;
+  height: 570px;
   opacity: 0.9;
 }
 img{
+  position: relative;
+  top: -70px;
   max-width: 850px;
-  max-height: 550px;
+  max-height: 570px;
   align: center;
 }
+.Desc {
+  position: relative;
+  left: 400px;
+  top: -20px;
+}
+
 
 .media {
   height: 450px;
@@ -106,13 +122,26 @@ img{
   top: 40px;
 
 }
-
+.nf{
+  background-color: rgba(224,224,224, 0.6);
+  font-size: 20px;
+  position: absolute;
+  left:270px;
+  color: rgb(0,128,255);
+}
+p{
+  color: #0080FF;
+}
 .card-heading {
   padding: 16px;
+  margin-top: 20px;
+  position: relative;
+  top: 35px;
 }
 
 .field-line, .button-line {
   padding: 16px;
+
 }
 
 .error-message {
