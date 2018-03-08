@@ -37,8 +37,8 @@ var selectJobPost=function(cb) {
 };
 //=============================================================================================
 //Post request for users to add a job post
-var postJob =function(jobName, jobDescription, jobImage, jobLocation, cb){
-  connect.query('INSERT INTO job_post(jobName,jobDescription,jobImage,jobLocation) VALUES (?,?,?)',
+var postJob =function(jobName, jobDescription, jobImage, cb){
+  connect.query('INSERT INTO job_post(jobName,jobDescription,jobImage) VALUES (?,?,?)',
   [jobName,jobDescription,jobImage], (error, results, fields)=>{
     if(error){
       console.log('error posting job post');
