@@ -24,6 +24,8 @@ CREATE TABLE job_post(
   jobDescription varchar(255) NOT NULL,
   jobImage nvarchar(500) NOT NULL,
   userID int,
+  longitud varchar(15),
+  laditud varchar(15),
   FOREIGN KEY (userID) REFERENCES user(userID)
 );
 
