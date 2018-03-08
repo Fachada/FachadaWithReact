@@ -11,16 +11,17 @@ CREATE TABLE user(
   email varchar(255) NOT NULL,
   description varchar(255) NOT NULL,
   image nvarchar(500) NOT NULL,
-  location varchar(500) NOT NULL,
+  location varchar(255) NOT NULL,
   facebook nvarchar(500) NOT NULL
 );
 
-INSERT INTO user(name, typeOfUser, email, description, image, location, facebook) VALUES ('The Doctor', 'Client', 'thedoctor@gmail.com', 'Hi, The Doctor here, too busy saving the world and occasionally need help with the TARDIS; she is quite the beauty', 'https://images.theconversation.com/files/178385/original/file-20170717-14315-1cnwpvh.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip', 'San Pablo Xalpa, 02110 Mexico City, CDMX, Mexico', 'https://www.facebook.com/DoctorWho/');
+INSERT INTO user(name, typeOfUser, email, description, image, location, facebook)
+VALUES ('The Doctor', 'Client', 'thedoctor@gmail.com', 'Hi, The Doctor here, too busy saving the world and occasionally need help with the TARDIS; she is quite the beauty', 'https://images.theconversation.com/files/178385/original/file-20170717-14315-1cnwpvh.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip', 'San Pablo Xalpa, 02110 Mexico City, CDMX, Mexico', 'https://www.facebook.com/DoctorWho/');
 
 CREATE TABLE job_post(
   jobID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   jobName varchar(50) NOT NULL,
-  jobDescription varchar(500) NOT NULL,
+  jobDescription varchar(255) NOT NULL,
   jobImage nvarchar(500) NOT NULL,
   userID int,
   FOREIGN KEY (userID) REFERENCES user(userID)
@@ -36,4 +37,4 @@ CREATE TABLE services(
   plumbing varchar(500),
   carpentry varchar(500),
   paint varchar(500)
-)
+);
