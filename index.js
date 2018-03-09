@@ -16,18 +16,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 
 // load passport strategies
-const localSignupStrategy = require('./server/passport/local-signup');
-const localLoginStrategy = require('./server/passport/local-login');
+const localSignupStrategy = require('./index.js');
+const localLoginStrategy = require('./index.js');
 passport.use('local-signup', localSignupStrategy);
 passport.use('local-login', localLoginStrategy);
 
 // pass the authorization checker middleware
-const authCheckMiddleware = require('./server/middleware/auth-check');
+const authCheckMiddleware = require('./server/routes/auth');
 app.use('/api', authCheckMiddleware);
 
 // routes
 const authRoutes = require('./server/routes/auth');
-const apiRoutes = require('./server/routes/api');
+const apiRoutes = require('./server/routes/auth');
 app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
 
