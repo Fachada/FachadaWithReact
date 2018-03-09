@@ -98,7 +98,6 @@ const SignUpForm = ({
       <div className="button-line">
         <RaisedButton type="submit" label="Create New Account" backgroundColor=" #808080" style={styleb} />
       </div>
-
       <CardText>Already have an account? <Link to={'/login'}>Log in</Link></CardText>
     </form>
   </Paper>
