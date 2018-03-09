@@ -4,7 +4,7 @@
   "description": "Authentication in React Application",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --use-strict index.js",
+    "start": "nodemon  index.js",
     "bundle": "webpack"
   },
   "repository": {
@@ -24,8 +24,10 @@
     "passport-local": "^1.0.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "react-router": "^3.0.0",
+    "react-router": "^3.2.1",
     "react-tap-event-plugin": "^2.0.1",
+    "semantic-ui": "^2.3.0",
+    "semantic-ui-rating": "^2.3.0",
     "semantic-ui-react": "^0.78.3",
     "validator": "^6.2.0"
   },
