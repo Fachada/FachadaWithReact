@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import PostJob from './components/ClientProfile/PostJob.jsx';
+import JobPost from './components/ClientProfile/JobPostList.jsx';
 
 class Client extends React.Component {
   constructor(props){
     super(props);
     this.state={
       user:[],
-      job:[]
+      jobs:[]
     }
     this.getUser =this.getUser.bind(this);
     this.getPost =this.getPost.bind(this);
@@ -38,14 +41,14 @@ class Client extends React.Component {
     }).done(() =>{
       this.getPost();
     });
-  }
+  };
 
   getPost(){
     $.ajax({
       url:'',
       method:'GET',
       success: (results)=>{
-        this.setState({job:results});
+        this.setState({jobs:results});
       },
       error:(xhr, error)=>{
         console.log('getPost ajax request error');
@@ -59,8 +62,10 @@ class Client extends React.Component {
   }
 
   render(){
-    return(
-
+    return(<div>
+      <PostJob addItem={this.addPost} />
+      <JobPost jobs={this.state-jobs}/>
+      </div>
     )
   }
 }
