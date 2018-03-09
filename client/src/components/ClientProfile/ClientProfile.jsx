@@ -13,7 +13,8 @@ class Client extends React.Component {
     }
     this.getUser =this.getUser.bind(this);
     this.getPost =this.getPost.bind(this);
-  }
+    this.addPost=this.addPost.bind(this);
+    }
 
   getUser(){
     $.ajax({
