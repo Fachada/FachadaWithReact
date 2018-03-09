@@ -64,6 +64,7 @@ class Client extends React.Component {
 
   render(){
     return(<div>
+      <h1>hello todos!</h1>
       <PostJob addItem={this.addPost} />
       <JobPost jobs={this.state-jobs}/>
       </div>
