@@ -9,6 +9,16 @@ var connect = mysql.createConnection({
   password: 'root',
   database: 'fachada'
 });
+
+//testing right connetion with mysql
+connection.query('SELECT 1', function (error, results, fields) {
+  if (error) throw error;
+  // connected!
+});
+
+
+connect.connect();
+
 //======================================================
 //select user information from user schema in DB
 var selectUser=function(cb){
@@ -21,6 +31,7 @@ var selectUser=function(cb){
       cb(null, results)
     }
   })
+  connect.end();
 };
 //======================================================================
 //get job_post from schema in DB
@@ -34,6 +45,7 @@ var selectJobPost=function(cb) {
       cb(null, results);
     }
   })
+  connect.end();
 };
 //=============================================================================================
 //Post request for users to add a job post
@@ -48,7 +60,10 @@ var postJob =function(jobName, jobDescription, jobImage, jobLocation, cb){
       cb(null, results);
     }
   });
+  connect.end();
 };
+
+
 //=========================================================================================================
 //exports
 module.exports.postJob = postJob;

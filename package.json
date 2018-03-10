@@ -4,12 +4,11 @@
   "description": "Authentication in React Application",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --use-strict index.js",
-    "bundle": "webpack"
+    "start": "nodemon --use-strict index.js"
   },
   "repository": {
     "type": "git",
-    "url": "",
+    "url": ""
   },
   "author": "Vladimir Ponomarev",
   "license": "MIT",
