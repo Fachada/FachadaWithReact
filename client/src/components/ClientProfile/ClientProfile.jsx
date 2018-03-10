@@ -13,7 +13,8 @@ class Client extends React.Component {
     }
     this.getUser =this.getUser.bind(this);
     this.getPost =this.getPost.bind(this);
-  }
+    this.addPost=this.addPost.bind(this);
+    }
 
   getUser(){
     $.ajax({
@@ -63,6 +64,7 @@ class Client extends React.Component {
 
   render(){
     return(<div>
+      <h1>hello todos!</h1>
       <PostJob addItem={this.addPost} />
       <JobPost jobs={this.state-jobs}/>
       </div>
