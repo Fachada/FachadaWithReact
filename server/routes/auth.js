@@ -1,7 +1,7 @@
 const express = require('express');
 const validator = require('validator');
 const passport = require('passport');
-
+const PassportLocalStrategy = require('passport-local').Strategy;
 const router = new express.Router();
 
 /**
@@ -142,6 +142,5 @@ router.post('/login', (req, res, next) => {
     });
   })(req, res, next);
 });
-
 
 module.exports = router;
