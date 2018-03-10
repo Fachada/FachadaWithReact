@@ -1,5 +1,4 @@
-import React, { PropTypes } from 'react';
-import { Link, IndexLink } from 'react-router';
+import React from 'react';
 import Auth from '../modules/Auth';
 
 

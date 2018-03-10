@@ -8,21 +8,20 @@ How to use this doc:
 Address the TODO’s. If one TODO is too hard for us, skip it delete later.
 
 Team Name:
-Los Fachitos
+Cool Peeps Master Developers
 
-Team members:  
-Marco Castillo
-Armando Cano  
-Jorge Cervantes
-Luis F. Ortiz
-Juan Tejeda   
-Edgar Muñoz
+Team members:
+Miriam Alvarez
+Eduardo Barrañon
+Beatriz Garcia
+Heber Futierrez
+Jorge Lerma
 
-GitHub repo: https://github.com/Fachada/Fachada
-waffle.io: https://waffle.io/Fachada/Fachada
+GitHub repo: https://github.com/GreenField-Holacode/FachadaWithReact.git
+waffle.io: https://waffle.io/GreenField-Holacode/FachadaWithReact
 
 App overview
-Fachada is a web based painting service where the client can upload a picture of the room, or wall where you’d like to get your paint job done. People that offer painting services can contact the customer and give their budget proposal meaning how much they’d charge for their services, also the people that offers the painting service can upload pictures of the jobs they have done before and will be getting reviews of people that hired them before.
+Fachada is a web based painting service where the client can upload a picture of the room, or wall where you’d like to get a home improvement job done. People that offer services can contact the customer and give their budget proposal meaning to give a quote. People who offer services can upload pictures of the jobs they have done before and will be getting reviews of people that hired them before.
 
 Mocks/WireFrames
 Home
@@ -33,6 +32,7 @@ User Profile
 
 Tools and Technologies we plan to use:
 React
+MySQL
 MongoDB
 Mongoose
 Node.js
@@ -41,27 +41,29 @@ Material UI
 What will be cool/ hard / done from scratch?
 
 Cool:
-• Creating a network for jobs
-• Working with authentication
+• Adding map API
 • Being able to upload images on database
 
 Hard:
-• Working with authentication
+• Connecting database
 • Front end development
 • Working with server to upload images
 
 Scratch:
-• Creating an authentication  Ownership
+• User Profiles
+• Database
+• Map API
 
 What each member of the team is going to work on:
-Front end/ HTML, CSS, Material UI - Luis Ortiz, Juan Tejada, Edgar Muñoz
-MongoDB - Jorge
-Mongoose - Jorge
-Passport - Marco
-Scrum Master - Armando Cano  
-Project Manager - Armando Cano
+Front end/ HTML, CSS, Material UI - Beatriz, Miriam
+Back-End - Heber
+MySQL - Miriam
+Maps and APIs - Jorge
+React Components - Miriam, Eduardo
+Scrum Master - Heber Gutierrez  
+Project Manager - Beatriz Garcia
 
 LEGACY WEEK FEATURES YOU CAN ADD:
 Create an algorithm to figure if it's a client or User
-Be able to put a picture on the feed within the Post
-Upload you own pictures to you profile
+Adding a feature that will allow users to apply to jobs directly through the website
+Implement a chat service so clients and employees can communicate
