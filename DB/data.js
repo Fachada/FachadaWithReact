@@ -62,8 +62,6 @@ var postJob =function(jobName, jobDescription, jobImage, jobLocation, cb){
   });
   connect.end();
 };
-
-
 //=========================================================================================================
 //exports
 module.exports.postJob = postJob;
