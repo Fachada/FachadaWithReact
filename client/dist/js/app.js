@@ -46,6 +46,10 @@
 
 	'use strict';
 
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -77,11 +81,9 @@
 	// remove tap delay, essential for MaterialUI to work properly
 	(0, _reactTapEventPlugin2.default)();
 
-	_reactDom2.default.render(_react2.default.createElement(
-	  _MuiThemeProvider2.default,
-	  { muiTheme: (0, _getMuiTheme2.default)() },
-	  _react2.default.createElement(_reactRouter.Router, { history: _reactRouter.browserHistory, routes: _routes2.default })
-	), document.getElementById('react-app'));
+	_reactDom2.default.render(_react2.default.createElement(_MuiThemeProvider2.default, { muiTheme: (0, _getMuiTheme2.default)() }), _react2.default.createElement(_reactRouter.Router, { history: _reactRouter.browserHistory, routes: _routes2.default }), document.getElementById('react-app'));
+
+	exports.default = app;
 
 /***/ }),
 /* 1 */
@@ -32369,58 +32371,80 @@
 
 /***/ }),
 /* 364 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2015, Yahoo! Inc.
 	 * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
 	 */
-	'use strict';
-
-	var REACT_STATICS = {
-	    childContextTypes: true,
-	    contextTypes: true,
-	    defaultProps: true,
-	    displayName: true,
-	    getDefaultProps: true,
-	    mixins: true,
-	    propTypes: true,
-	    type: true
-	};
-
-	var KNOWN_STATICS = {
-	    name: true,
-	    length: true,
-	    prototype: true,
-	    caller: true,
-	    arguments: true,
-	    arity: true
-	};
-
-	var isGetOwnPropertySymbolsAvailable = typeof Object.getOwnPropertySymbols === 'function';
-
-	module.exports = function hoistNonReactStatics(targetComponent, sourceComponent, customStatics) {
-	    if (typeof sourceComponent !== 'string') { // don't hoist over string (html) components
-	        var keys = Object.getOwnPropertyNames(sourceComponent);
-
-	        /* istanbul ignore else */
-	        if (isGetOwnPropertySymbolsAvailable) {
-	            keys = keys.concat(Object.getOwnPropertySymbols(sourceComponent));
-	        }
-
-	        for (var i = 0; i < keys.length; ++i) {
-	            if (!REACT_STATICS[keys[i]] && !KNOWN_STATICS[keys[i]] && (!customStatics || !customStatics[keys[i]])) {
-	                try {
-	                    targetComponent[keys[i]] = sourceComponent[keys[i]];
-	                } catch (error) {
-
+	(function (global, factory) {
+	     true ? module.exports = factory() :
+	    typeof define === 'function' && define.amd ? define(factory) :
+	    (global.hoistNonReactStatics = factory());
+	}(this, (function () {
+	    'use strict';
+	    
+	    var REACT_STATICS = {
+	        childContextTypes: true,
+	        contextTypes: true,
+	        defaultProps: true,
+	        displayName: true,
+	        getDefaultProps: true,
+	        getDerivedStateFromProps: true,
+	        mixins: true,
+	        propTypes: true,
+	        type: true
+	    };
+	    
+	    var KNOWN_STATICS = {
+	        name: true,
+	        length: true,
+	        prototype: true,
+	        caller: true,
+	        callee: true,
+	        arguments: true,
+	        arity: true
+	    };
+	    
+	    var defineProperty = Object.defineProperty;
+	    var getOwnPropertyNames = Object.getOwnPropertyNames;
+	    var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+	    var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+	    var getPrototypeOf = Object.getPrototypeOf;
+	    var objectPrototype = getPrototypeOf && getPrototypeOf(Object);
+	    
+	    return function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
+	        if (typeof sourceComponent !== 'string') { // don't hoist over string (html) components
+	            
+	            if (objectPrototype) {
+	                var inheritedComponent = getPrototypeOf(sourceComponent);
+	                if (inheritedComponent && inheritedComponent !== objectPrototype) {
+	                    hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
 	                }
 	            }
+	            
+	            var keys = getOwnPropertyNames(sourceComponent);
+	            
+	            if (getOwnPropertySymbols) {
+	                keys = keys.concat(getOwnPropertySymbols(sourceComponent));
+	            }
+	            
+	            for (var i = 0; i < keys.length; ++i) {
+	                var key = keys[i];
+	                if (!REACT_STATICS[key] && !KNOWN_STATICS[key] && (!blacklist || !blacklist[key])) {
+	                    var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
+	                    try { // Avoid failures from read-only properties
+	                        defineProperty(targetComponent, key, descriptor);
+	                    } catch (e) {}
+	                }
+	            }
+	            
+	            return targetComponent;
 	        }
-	    }
-
-	    return targetComponent;
-	};
+	        
+	        return targetComponent;
+	    };
+	})));
 
 
 /***/ }),
@@ -34824,6 +34848,22 @@
 
 	var _Auth2 = _interopRequireDefault(_Auth);
 
+	var _ClientProfile = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./ClientProfile/ClientProfile.jsx\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _ClientProfile2 = _interopRequireDefault(_ClientProfile);
+
+	var _Map = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./ClientProfile/Map.jsx\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _Map2 = _interopRequireDefault(_Map);
+
+	var _Description = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./ClientProfile/Description.jsx\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _Description2 = _interopRequireDefault(_Description);
+
+	var _app = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/app.jsx\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _app2 = _interopRequireDefault(_app);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var routes = {
@@ -34839,8 +34879,32 @@
 	      }
 	    }
 	  }, {
+	    path: '/Dashboard',
+	    component: Dashboard
+	  }, {
+	    path: '/ClientProfile/ClientProfile',
+	    component: ClientProfile
+	  }, {
+	    path: '/ClientProfile/HomePage',
+	    component: _HomePage2.default
+	  }, {
+	    path: '/ClientProfile/Base',
+	    component: _Base2.default
+	  }, {
+	    path: '/ClientProfile/ClientProfile/PostJob',
+	    component: _ClientProfile2.default
+	  }, {
+	    path: '/ClientProfile/ClientProfile/Map',
+	    component: _Map2.default
+	  }, {
+	    path: '/ClientProfile/ClientProfile/Description',
+	    component: _Description2.default
+	  }, {
 	    path: '/login',
 	    component: _LoginPage2.default
+	  }, {
+	    path: '/App',
+	    component: App
 	  }, {
 	    path: '/signup',
 	    component: _SignUpPage2.default
@@ -42337,7 +42401,6 @@
 	    };
 	    return _this;
 	  }
-
 	  /**
 	   * This method will be executed after initial rendering.
 	   */
@@ -42349,7 +42412,7 @@
 	      var _this2 = this;
 
 	      var xhr = new XMLHttpRequest();
-	      xhr.open('get', '/api/dashboard');
+	      xhr.open('get', '../components/Dashboard.jsx');
 	      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	      // set the authorization HTTP header
 	      xhr.setRequestHeader('Authorization', 'bearer ' + _Auth2.default.getToken());
@@ -42361,7 +42424,7 @@
 	          });
 	        }
 	      });
-	      xhr.send();
+	      xhr.send(xhr);
 	    }
 
 	    /**
